@@ -1,0 +1,45 @@
+<%- include("partials/header.ejs") %>
+
+<div class="taskView" id="dateHeader">
+    <h1><%= new Date().toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      }); %></h1>
+</div>
+        <div class="taskView">
+            <div class="task-item">
+                <input type="checkbox">
+                <p>Do Laundry</p>
+            </div>
+            <div class="task-item">
+                <input type="checkbox">
+                <p>Wash the dishes</p>
+            </div>
+
+            <div class="task-item">
+                <input type="checkbox">
+                <p>Prepare Food</p>
+            </div>
+
+            <% for(var i = 0; i < newTaskList.length ; i++){ %>
+                <div class="task-item">
+                    <input type="checkbox">
+                    <p><%= newTaskList[i] %></p>
+                </div>
+          <%  } %>
+            
+
+
+
+
+
+            <form class="task-item" action="/" method="post">
+                <input type="text" name="newTask" placeholder="Add a new task" autocomplete="off" required maxlength="100">
+                <button type="submit">+</button>
+            </form>
+        </div>
+    </main>
+
+    <%- include("partials/footer.ejs") %>

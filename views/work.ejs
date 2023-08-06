@@ -1,0 +1,36 @@
+<%- include("partials/header.ejs") %>
+<div class="taskView" id="dateHeader">
+    <h1>Work List</h1>
+</div>
+        <div class="taskView">
+            <div class="task-item">
+                <input type="checkbox">
+                <p>Submit the report</p>
+            </div>
+            <div class="task-item">
+                <input type="checkbox">
+                <p>Create another app</p>
+            </div>
+
+            <div class="task-item">
+                <input type="checkbox">
+                <p>Study the process</p>
+            </div>
+
+            <% for(var i = 0; i < newWorkList.length ; i++){ %>
+                <div class="task-item">
+                    <input type="checkbox">
+                    <p><%= newWorkList[i] %></p>
+                </div>
+          <%  } %>
+            
+
+
+            <form class="task-item" action="/submit" method="post">
+                <input type="text" name="newWorkTask" placeholder="Add a work task" autocomplete="off" required maxlength="100">
+                <button type="submit">+</button>
+            </form>
+        </div>
+    </main>
+
+    <%- include("partials/footer.ejs") %>
